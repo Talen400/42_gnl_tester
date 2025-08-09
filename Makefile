@@ -11,7 +11,7 @@ CFLAGS = -Wall -Wextra \
          -DHAVE_MALLOC_H=1 \
          -DHAVE_INTTYPES_H=1
 
-SRC = $(PROJECT_DIR)/*.c
+SRC = get_next_line.c get_next_line_utils.c
 TESTS = tests/*.c
 CMOCKA_SRC = cmocka/src/cmocka.c
 
