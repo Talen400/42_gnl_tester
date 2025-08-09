@@ -1,0 +1,15 @@
+ababababa \
+fsfsdf \
+meow \
+adfas \
+42 \
+sadf \
+\n \
+Memory leaks \
+'\0' \
+\
+\
+\
+test nulo \
+'\0' \
+0 \
