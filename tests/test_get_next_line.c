@@ -6,9 +6,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-// Função do projeto principal
-extern char *get_next_line(int fd);
+#include "get_next_line.h"
 
 static void test_read_file_lines(void **state) {
     int fd = open("test.txt", O_RDONLY);
@@ -23,5 +21,13 @@ static void test_read_file_lines(void **state) {
     }
 
     close(fd);
-    assert_true(count > 0); // ou qualquer outra verificação
+    assert_true(count > 0);
+}
+
+int main(void) {
+    const struct CMUnitTest tests[] = {
+        cmocka_unit_test(test_read_file_lines),
+    };
+
+    return cmocka_run_group_tests(tests, NULL, NULL);
 }
