@@ -4,14 +4,14 @@ PROJECT_DIR ?= .
 
 CFLAGS = -Wall -Wextra \
          -Icmocka/include \
-         -I$(PROJECT_DIR)/src \
+         -I$(PROJECT_DIR) \
          -D_POSIX_C_SOURCE=200809L \
          -DHAVE_SIGNAL_H=1 \
          -DHAVE_STRINGS_H=1 \
          -DHAVE_MALLOC_H=1 \
          -DHAVE_INTTYPES_H=1
 
-SRC = $(PROJECT_DIR)/src/*.c
+SRC = $(PROJECT_DIR)/*.c
 TESTS = tests/test_soma.c
 CMOCKA_SRC = cmocka/src/cmocka.c
 
@@ -26,4 +26,3 @@ test:
 
 clean:
 	rm -f test_runner
-
