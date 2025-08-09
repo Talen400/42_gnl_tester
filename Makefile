@@ -12,7 +12,7 @@ CFLAGS = -Wall -Wextra \
          -DHAVE_INTTYPES_H=1
 
 SRC = $(PROJECT_DIR)/*.c
-TESTS = tests/test_soma.c
+TESTS = tests/*.c
 CMOCKA_SRC = cmocka/src/cmocka.c
 
 LDLIBS = -ldl -lrt -pthread
