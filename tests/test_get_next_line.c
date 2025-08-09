@@ -9,6 +9,7 @@
 #include "get_next_line.h"
 
 static void test_read_file_lines(void **state) {
+    void (state);
     int fd = open("test.txt", O_RDONLY);
     assert_true(fd >= 0);
 
