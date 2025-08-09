@@ -1,24 +1,27 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <setjmp.h>
-#include "../cmocka/include/cmocka.h"
-#include "soma.h"  // do projeto original, em src/
+#include <cmocka.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-// Função declarada no projeto principal
-extern int soma(int a, int b);
+// Função do projeto principal
+extern char *get_next_line(int fd);
 
-static void test_soma_positivos(void **state) {
-    assert_int_equal(soma(2, 3), 5);
-}
+static void test_read_file_lines(void **state) {
+    int fd = open("test.txt", O_RDONLY);
+    assert_true(fd >= 0);
 
-static void test_soma_negativos(void **state) {
-    assert_int_equal(soma(-1, -1), -2);
-}
+    char *line;
+    int count = 0;
 
-int main(void) {
-    const struct CMUnitTest tests[] = {
-        cmocka_unit_test(test_soma_positivos),
-        cmocka_unit_test(test_soma_negativos),
-    };
-    return cmocka_run_group_tests(tests, NULL, NULL);
+    while ((line = get_next_line(fd)) != NULL) {
+        printf("Linha %d: %s", ++count, line);
+        free(line);
+    }
+
+    close(fd);
+    assert_true(count > 0); // ou qualquer outra verificação
 }
