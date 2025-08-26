@@ -1,0 +1,4 @@
+Primeira linha do segundo arquivo
+Segunda linha
+Terceira linha com algum conteúdo
+Quarta linha

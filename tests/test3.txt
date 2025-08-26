@@ -1,0 +1,4 @@
+Conteúdo do terceiro arquivo
+Linha 2
+Linha 3
+Fim do arquivo 3

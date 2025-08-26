@@ -1,15 +1,6 @@
-ababababa \
-fsfsdf \
-meow \
-adfas \
-42 \
-sadf \
-\n \
-Memory leaks \
-'\0' \
-\
-\
-\
-test nulo \
-'\0' \
-0 \
+0123456789012345678901234567890123456789
+Linha 2
+Linha 3
+Linha 4 com conteúdo mais longo para testar buffer
+Linha 5
+Última linha
