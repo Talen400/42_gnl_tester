@@ -68,7 +68,7 @@ static void test_only_nl(void **state) {
     
     while ((line = get_next_line(fd)) != NULL) {
         line_count++;
-        assert_string_equal(line, "\\n\n");
+        assert_string_equal(line, "\n");
         free(line);
     }
     
