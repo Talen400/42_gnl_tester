@@ -17,7 +17,7 @@ CMOCKA_SRC = cmocka/src/cmocka.c
 
 LDLIBS = -ldl -lrt -pthread
 
-all: prepare test
+all: prepare test clean
 
 prepare:
 	@echo "Preparing test environment..."
@@ -39,6 +39,8 @@ prepare:
 	if [ -f "$(PROJECT_DIR)/get_next_line_bonus.h" ]; then \
 		cp $(PROJECT_DIR)/get_next_line_bonus.h .; \
 	fi
+	cp tests/*.txt .
+	touch empty.txt
 
 test: $(SRC) $(TESTS) $(CMOCKA_SRC)
 	$(CC) $(CFLAGS) -o test_runner $(TESTS) $(SRC) $(CMOCKA_SRC) $(LDLIBS)
@@ -46,5 +48,8 @@ test: $(SRC) $(TESTS) $(CMOCKA_SRC)
 
 clean:
 	rm -f test_runner
+	rm -f get_next_line.c get_next_line_utils.c get_next_line.h
+	rm -f get_next_line_bonus.c get_next_line_utils_bonus.c get_next_line_bonus.h
+	rm -f *.txt
 
 .PHONY: all clean prepare test
