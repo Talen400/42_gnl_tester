@@ -40,7 +40,7 @@ prepare:
 		cp $(PROJECT_DIR)/get_next_line_bonus.h .; \
 	fi
 
-test:
+test: $(SRC) $(TESTS) $(CMOCKA_SRC)
 	$(CC) $(CFLAGS) -o test_runner $(TESTS) $(SRC) $(CMOCKA_SRC) $(LDLIBS)
 	./test_runner
 
